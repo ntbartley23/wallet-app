@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111155500) do
+ActiveRecord::Schema.define(version: 20151111164638) do
+
+  create_table "cards", force: :cascade do |t|
+    t.integer  "card_number"
+    t.string   "card_type"
+    t.integer  "expiration_month"
+    t.integer  "expiration_year"
+    t.decimal  "balance"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +37,9 @@ ActiveRecord::Schema.define(version: 20151111155500) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "fname"
+    t.string   "lname"
+    t.integer  "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
