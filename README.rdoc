@@ -1,1 +1,23 @@
-<tt> This is a code block </tt>
+<tt> Purpose: To build a web app that allows users to enter their card information , see their card balance and if permissable, allow persons of their choice to share bank cards with.
+
+ There will need to be a user's table and a card table
+
+ User's table should include name,phone, email, password
+ Card table should include card number, card type, card expiration date( Month and year) card balance and user's id number( primary key)
+
+ Card should be long to users, 
+ Users should have one or many cards
+
+
+
+
+
+
+
+
+
+
+
+
+</tt>
+
