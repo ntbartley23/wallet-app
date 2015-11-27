@@ -6,19 +6,22 @@ class User < ActiveRecord::Base
 
     has_many :cards
 
-    validates :fname, presence: true
-    validates :lname, presence: true
-    validates :email, presence: true, uniqueness:
-    validates :password, presence: true, length: {minimum: 10}
-    validates :phone, presence: true, inclusion: {in: 0..9}
+    validates_presence_of :fname, :lname
+    
+    validates_uniqueness_of :email
+    validates :password, confirmation: true, length: {minimum: 10}
+    validates :phone, presence: true, inclusion: {:in => 0..9}
 
 
-    valdates  :email_format_should_contain_at_sign
+    validates :email_should_contain_at_sign
 
-    def email_format_should_contain_at_sign
+    def email_should_contain_at_sign
     	if email.match (/@/).nil?
-    		error.add(:email_format, "'#{email}' must contain @ sign")
+    		error.add(:email, "'#{email}' must contain @ sign")
     	end	
-    end	
-end
 
+	end
+
+
+
+end
